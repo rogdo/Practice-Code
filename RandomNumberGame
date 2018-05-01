@@ -1,0 +1,32 @@
+import random
+class RanNum:
+    counter = 0
+    
+    def __init__(self, randomnumber, guess):
+        self.counter += 1
+        self.randomnumber = randomnumber
+        self.guess = guess
+        
+    def evaluateGuess(self):
+        while self.guess != self.randomnumber:
+            if self.guess > self.randomnumber:
+                print("Try a lower number.")
+                self.guess = int(input("Your Guess:"))
+                self.counter += 1
+            elif self.guess < self.randomnumber:
+                print("Try a higher number.")
+                self.guess = int(input("Your Guess:"))
+                self.counter += 1
+            if self.guess == self.randomnumber:
+                print("You guessed the number in ", self.counter, "tries.")
+                print("Game over.")
+                
+def main():
+    randomnumber = random.randint(1, 100)
+    print("I'm thinking of a number between 1 and 100. Guess it!")
+    guess = int(input("Your Guess: "))
+    RanNum1 = RanNum(randomnumber, guess)
+    RanNum1.evaluateGuess()
+
+if __name__ == "__main__":
+    main()
